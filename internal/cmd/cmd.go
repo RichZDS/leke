@@ -2,11 +2,12 @@ package cmd
 
 import (
 	"context"
+	"leke/internal/controller"
+	wsController "leke/internal/controller/websocket"
+
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/gcmd"
-	"leke/internal/controller"
-	wsController "leke/internal/controller/websocket"
 )
 
 var (
@@ -23,9 +24,8 @@ var (
 				controller.RegisterControllers(group)
 			})
 
-			// 注册 WebSocket 路由（不在 /api 组下，因为 WebSocket 不需要中间件）
-			wsCtrl := wsController.New()
-			s.BindHandler("/ws", wsCtrl.Echo)
+			// 注册 WebSocket 广播路由（不在 /api 组下，因为 WebSocket 不需要中间件）
+			s.BindHandler("/ws", wsController.HandlerConnection)
 
 			// 配置静态文件服务（用于提供 HTML 客户端页面）
 			s.SetServerRoot("resource/public")

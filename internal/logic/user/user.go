@@ -106,7 +106,7 @@ func (s *sUser) UserUpdate(ctx context.Context, req *v1.UserUpdateReq) (res *v1.
 
 	res = &v1.UserUpdateRes{}
 	// 获取更新后的用户信息
-	err = m.Where(dao.Users.Columns().Account, req.Account).Scan(&res.UserViewParams)
+	err = m.Where(dao.Users.Columns().Account, req.Account).Scan(&res)
 	if err != nil {
 		return nil, err
 	}

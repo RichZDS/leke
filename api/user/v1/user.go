@@ -23,6 +23,7 @@ type UserViewReq struct {
 	g.Meta   `path:"/user/view" method:"get" tags:"User" summary:"User View"`
 	Account  string `json:"account"    orm:"account"      description:"账号"`
 	Nickname string `json:"nickname"   orm:"nickname"     description:"昵称"`
+	Id       uint64 `json:"id"         orm:"id"           description:"用户ID"`
 }
 type UserViewRes struct {
 	model.UserViewParams
@@ -30,9 +31,10 @@ type UserViewRes struct {
 type UserUpdateReq struct {
 	g.Meta  `path:"/user/update" method:"put" tags:"User" summary:"User Update"`
 	Account string `json:"account"    orm:"account"      description:"账号"`
+	model.User
 }
 type UserUpdateRes struct {
-	model.UserViewParams
+	Id uint64 `json:"id"         orm:"id"           description:"用户ID"`
 }
 type UserDeleteReq struct {
 	g.Meta  `path:"/user/delete" method:"delete" tags:"User" summary:"User Delete"`
