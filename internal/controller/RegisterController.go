@@ -1,12 +1,9 @@
 package controller
 
 import (
-	"leke/internal/controller/class"
 	"leke/internal/controller/containment"
-	"leke/internal/controller/fans"
 	"leke/internal/controller/login"
 	"leke/internal/controller/room"
-	"leke/internal/controller/subscribe"
 	"leke/internal/controller/user"
 	"leke/internal/middleware"
 
@@ -26,10 +23,9 @@ func RegisterControllers(group *ghttp.RouterGroup) {
 	group.Group("/", func(g *ghttp.RouterGroup) {
 		g.Middleware(middleware.JWTAuth)
 		g.Bind(
-			class.NewV1(),
 			user.NewV1(),
-			fans.NewV1(),
-			subscribe.NewV1(),
+			user.NewFansV1(),
+			user.NewSubscribeV1(),
 			containment.NewV1(),
 			room.NewV1(),
 		)

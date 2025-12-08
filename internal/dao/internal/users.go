@@ -46,6 +46,7 @@ type UsersColumns struct {
 	JobTitle       string // 职位
 	Commendation   string //
 	Admonition     string //
+	Email          string //
 }
 
 // usersColumns holds the columns for the table users.
@@ -75,6 +76,7 @@ var usersColumns = UsersColumns{
 	JobTitle:       "job_title",
 	Commendation:   "Commendation",
 	Admonition:     "Admonition",
+	Email:          "email",
 }
 
 // NewUsersDao creates and returns a new DAO object for table data access.

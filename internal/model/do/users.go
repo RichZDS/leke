@@ -37,4 +37,5 @@ type Users struct {
 	JobTitle       any         // 职位
 	Commendation   any         //
 	Admonition     any         //
+	Email          any         //
 }

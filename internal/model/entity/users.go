@@ -35,4 +35,5 @@ type Users struct {
 	JobTitle       string      `json:"jobTitle"       orm:"job_title"       description:"职位"`                        // 职位
 	Commendation   int         `json:"commendation"   orm:"Commendation"    description:""`                          //
 	Admonition     int         `json:"admonition"     orm:"Admonition"      description:""`                          //
+	Email          string      `json:"email"          orm:"email"           description:""`                          //
 }

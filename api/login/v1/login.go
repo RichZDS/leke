@@ -31,3 +31,13 @@ type LogoutReq struct {
 }
 type LogoutRes struct {
 }
+
+// 用邮箱登录
+type LoginByEmailRequest struct {
+	Email string `json:"email"`
+}
+
+type LoginByVerificationCodeRequest struct {
+	Email string `json:"email"`
+	Code  string `json:"code"` //验证码
+}
