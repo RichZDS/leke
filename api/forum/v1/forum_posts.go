@@ -77,6 +77,8 @@ type ForumPostsListReq struct {
 	Status string `json:"status,omitempty" description:"帖子状态"`
 }
 
+//测试git
+
 // ForumPostsListRes 帖子列表响应
 type ForumPostsListRes struct {
 	response.PageResult
